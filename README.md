@@ -100,7 +100,10 @@ $env:ADMIN_EMAIL = "admin@example.com"
 $env:ADMIN_PASSWORD = "ganti-dengan-password-kuat-minimal-12-karakter"
 npm.cmd run create-admin
 Remove-Item Env:ADMIN_NAME, Env:ADMIN_EMAIL, Env:ADMIN_PASSWORD
-```
+```git remote -v
+git remote set-url origin https://github.com/USERNAME/NAMA-REPO.git
+git branch -M main
+git push -u origin main
 
 Password admin minimal 12 karakter dan tidak ditampilkan oleh command. Di production, jalankan command ini **sekali di terminal service hosting** setelah deploy, agar admin dibuat pada database di volume production. Jangan menjalankannya di komputer lokal jika yang dimaksud adalah membuat admin pada database production.
 
