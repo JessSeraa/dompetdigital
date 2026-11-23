@@ -7,6 +7,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY backend/package.json backend/package-lock.json ./backend/
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3 make g++ \
+    && rm -rf /var/lib/apt/lists/*
 RUN npm --prefix backend ci
 
 COPY frontend/package.json frontend/package-lock.json ./frontend/
