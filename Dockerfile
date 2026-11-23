@@ -17,6 +17,9 @@ ENV DATABASE_FILE=/data/finance.db
 WORKDIR /app
 
 COPY backend/package.json backend/package-lock.json ./backend/
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3 make g++ \
+    && rm -rf /var/lib/apt/lists/*
 RUN npm --prefix backend ci --omit=dev
 COPY backend/src ./backend/src
 COPY --from=build /app/frontend/dist ./frontend/dist
